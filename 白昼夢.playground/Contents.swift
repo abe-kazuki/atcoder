@@ -1,17 +1,14 @@
 import Foundation
  
-var input = (readLine()!).replacingOccurrences(of: " ", with: "")
-
+var input = Array(readLine()!)
 var str_array = ["dream","dreamer","erase","eraser"]
-str_array.sort{$0 > $1}
+var t = ""
 
-str_array.forEach{
-  if let range = input.range(of: $0) {
-    input.replaceSubrange(range, with: "")
-  }
+for i in 1...input.count {
+    t.insert(input[input.count-i], at: t.startIndex)
+     if str_array.contains(t) {
+         t = ""
+     }
 }
 
-
-print(input)
-var result = input.count == 0 ? "YES" : "NO"
-print(result)
+print(t.count == 0 ? "YES" : "NO")
