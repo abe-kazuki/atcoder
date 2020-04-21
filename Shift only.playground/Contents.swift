@@ -1,14 +1,13 @@
 import Foundation
- 
+
 let  N = Int(readLine()!) ?? 1
+var  A_array = (readLine()!).components(separatedBy: " ").map{(Int($0) ?? 0)}
+var count: Int = 100
  
-let  A_array = (readLine()!).components(separatedBy: " ")
-var array = A_array.map{(Int($0) ?? 0)}
- 
-var count = 0
- 
-while  array.filter{ $0 % 2 == 0 }.count == N{
-     array = array.map{Int($0/2)}
-    count += 1
+A_array.forEach{
+   if count > $0.trailingZeroBitCount{
+       count = $0.trailingZeroBitCount
+   }
 }
+
 print(count)
